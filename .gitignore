@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Cache / temp data (adjust if you add a cache folder later)
+.cache/
+*.cache
+data_cache/
+*.parquet
+*.feather
+
+# Build / dist
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Testing
+htmlcov/
+.coverage
+.coverage.*
+pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints
+
+# Secrets / local config
+.env
+*.env
+secrets/
+api_keys.*
+
+# Large or generated reports
+reports/*.html
+!reports/sample_*.html   # Keep one example report
+
+# Optional: ignore large sample data if it gets big
+# sample_data/*.csv
