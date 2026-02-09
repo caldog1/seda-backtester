@@ -150,8 +150,8 @@ Additional fully-commented strategy templates (ready for extension or optimizati
 Every example generates a rich standalone HTML report that showcases SEDA’s professional-grade reporting capabilities.
 
 ### Example Report
-![Trade Activity](reports/screenshot_backtest_report.png)
-![Performance Dashboard](reports/screenshot_perf_dashboard.png)
+![Trade Activity](docs/images/screenshot_backtest_report.png)
+![Performance Dashboard](docs/images/screenshot_perf_dashboard.png)
 
 
 

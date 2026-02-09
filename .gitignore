@@ -56,3 +56,12 @@ reports/*.html
 
 # Optional: ignore large sample data if it gets big
 # sample_data/*.csv
+# Generated backtest outputs — never commit
+reports/
+*.html
+*.png          # excludes root-level PNGs
+*.jpg
+
+# But allow documentation assets
+!docs/images/*.png
+!docs/images/*.jpg
