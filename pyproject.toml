@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "seda-backtester"
+version = "0.1.0"
+description = "Synchronous event-driven backtester for perpetual futures"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Callum Cruikshank", email = "callumcruikshank3@gmail.com"}]
+keywords = ["backtesting", "perpetual futures", "trading", "quant", "algorithmic trading", "finance"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Office/Business :: Financial",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Intended Audience :: Science/Research",
+]
+
+dependencies = [
+    "pandas",
+    "numpy",
+    "matplotlib",
+    "tqdm",
+    "scipy",
+    "jinja2",        # For HTML reports
+    "joblib"         # If used anywhere (safe to keep)
+]
+
+[project.optional-dependencies]
+optimization = ["optuna", "plotly", "kaleido", "scikit-learn"]
+
+[project.urls]
+Homepage = "https://github.com/caldog1/seda-backtester"
+Repository = "https://github.com/caldog1/seda-backtester"
+# Issues = "https://github.com/caldog1/seda-backtester/issues"  # Add later if you want
