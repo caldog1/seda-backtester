@@ -97,35 +97,36 @@ pip install optuna plotly kaleido  # for Optuna visualizations
 ## Quickstart
 
 Create a minimal script (e.g., simple_sma_backtest.py):
+
 ```Python
 from datetime import datetime
 
-from src.backtester.core.backtester import Backtester
+from src.backtester.core.engine import Backtester
 from src.backtester.strategies.sma_crossover import SMACrossoverStrategy
 from src.backtester.sizers.sizers import FixedNotionalSizer
 from src.backtester.reporting.reporter import Reporter
 
 if __name__ == "__main__":
-    strategy = SMACrossoverStrategy(
-        name="SMA Crossover",
-        fast_period=50,
-        slow_period=200,
-        sizer=FixedNotionalSizer(notional=100_000),
-    )
+  strategy = SMACrossoverStrategy(
+    name="SMA Crossover",
+    fast_period=50,
+    slow_period=200,
+    sizer=FixedNotionalSizer(notional=100_000),
+  )
 
-    bt = Backtester(
-        timeframes=["1h"],
-        asset_list=["BTCUSDT"],
-        strategies=[strategy],
-        start_date=datetime(2023, 1, 1),
-        end_date=datetime(2024, 12, 1),
-        initial_capital=100_000,
-        leverage=5.0,
-    )
+  bt = Backtester(
+    timeframes=["1h"],
+    asset_list=["BTCUSDT"],
+    strategies=[strategy],
+    start_date=datetime(2023, 1, 1),
+    end_date=datetime(2024, 12, 1),
+    initial_capital=100_000,
+    leverage=5.0,
+  )
 
-    results = bt.run()
-    Reporter(results, bt).generate_report(format="html", output_path="reports/quickstart.html")
-    Reporter(results, bt).generate_report(format="console")
+  results = bt.run()
+  Reporter(results, bt).generate_report(format="html", output_path="reports/quickstart.html")
+  Reporter(results, bt).generate_report(format="console")
 ```
 Run it:
 ```bash

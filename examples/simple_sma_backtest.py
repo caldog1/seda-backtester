@@ -11,7 +11,7 @@ This script demonstrates the easiest way to get started:
 
 from datetime import datetime
 
-from src.backtester.core.backtester import Backtester
+from src.backtester.core.engine import Backtester
 from src.backtester.reporting.reporter import Reporter
 from src.backtester.strategies.sma_crossover import SMACrossoverStrategy
 from src.backtester.sizers.sizers import FixedNotionalSizer

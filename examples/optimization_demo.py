@@ -19,7 +19,7 @@ import os
 import warnings
 import numpy as np
 
-from src.backtester.core.backtester import Backtester
+from src.backtester.core.engine import Backtester
 from src.backtester.strategies.sma_crossover import SMACrossoverStrategy
 from src.backtester.sizers.sizers import FixedNotionalSizer
 from src.backtester.optimization.optimizer import Optimizer

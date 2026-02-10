@@ -16,7 +16,7 @@ from typing import Dict, Optional
 import numpy as np
 import pandas as pd
 
-from src.backtester.data.base_provider import DataProvider
+from backtester.data.base_provider import DataProvider
 
 
 class CSVDataProvider(DataProvider):

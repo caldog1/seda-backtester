@@ -45,3 +45,6 @@ optimization = ["optuna", "plotly", "kaleido", "scikit-learn"]
 Homepage = "https://github.com/caldog1/seda-backtester"
 Repository = "https://github.com/caldog1/seda-backtester"
 # Issues = "https://github.com/caldog1/seda-backtester/issues"  # Add later if you want
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/backtester"]

@@ -18,10 +18,10 @@ from typing import DefaultDict, List, Tuple, NamedTuple
 
 import datetime as dt
 
-from src.backtester.core.execution import OrderType
-from src.backtester.core.order import Order
-from src.backtester.core.trade import Trade
-from src.backtester.sizers.sizers import PositionSizer
+from backtester.core.execution import OrderType
+from backtester.core.order import Order
+from backtester.core.trade import Trade
+from backtester.sizers.sizers import PositionSizer
 
 
 class ExitDecision(NamedTuple):

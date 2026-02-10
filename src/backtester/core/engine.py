@@ -18,17 +18,17 @@ from typing import Dict, List, Optional, Tuple
 
 import pandas as pd
 
-from src.backtester.core.liquidation_tracker import LiquidationTracker
-from src.backtester.core.results import BacktestResults
-from src.backtester.core.simulation import run_simulation
-from src.backtester.core.execution import (
+from backtester.core.liquidation_tracker import LiquidationTracker
+from backtester.core.results import BacktestResults
+from backtester.core.simulation import run_simulation
+from backtester.core.execution import (
     DefaultFeeModel,
     HybridSlippageModel,
     OrderType,
 )
-from src.backtester.strategies.base import Strategy
-from src.backtester.data.base_provider import DataProvider
-from src.backtester.data.csv_provider import CSVDataProvider
+from backtester.strategies.base import Strategy
+from backtester.data.base_provider import DataProvider
+from backtester.data.csv_provider import CSVDataProvider
 
 # Quiet logging by default — examples can configure if needed
 logging.basicConfig(level=logging.INFO)

@@ -24,10 +24,10 @@ import numpy as np
 import pandas as pd
 from tqdm import tqdm
 
-from src.backtester.core.results import BacktestResults
-from src.backtester.core.trade import Trade, TradeDirection, TradeStatus
-from src.backtester.core.order import Order  # New minimal order abstraction
-from src.backtester.core.execution import OrderType
+from backtester.core.results import BacktestResults
+from backtester.core.trade import Trade, TradeDirection, TradeStatus
+from backtester.core.order import Order
+from backtester.core.execution import OrderType
 
 
 def _collect_all_trades(backtester: "Backtester") -> List[Trade]:

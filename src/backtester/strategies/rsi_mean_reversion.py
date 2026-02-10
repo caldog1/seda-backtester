@@ -16,11 +16,11 @@ from typing import List, Optional, Tuple
 
 import numpy as np
 
-from src.backtester.strategies.base import Strategy, ExitDecision
-from src.backtester.sizers.sizers import PositionSizer
-from src.backtester.core.trade import Trade, TradeDirection
-from src.backtester.core.order import Order
-from src.backtester.core.execution import OrderType
+from backtester.strategies.base import Strategy, ExitDecision
+from backtester.sizers.sizers import PositionSizer
+from backtester.core.trade import Trade, TradeDirection
+from backtester.core.order import Order
+from backtester.core.execution import OrderType
 
 
 @dataclass

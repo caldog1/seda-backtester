@@ -12,8 +12,6 @@ from __future__ import annotations
 import datetime as dt
 from typing import Optional
 
-from src.backtester.core.trade import TradeDirection
-
 
 class LiquidationTracker:
     def __init__(

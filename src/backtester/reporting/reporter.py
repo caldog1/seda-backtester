@@ -20,9 +20,9 @@ import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 
-from src.backtester.core.backtester import Backtester
-from src.backtester.reporting.plotter import Plotter
-from src.backtester.core.results import BacktestResults
+from backtester.core.engine import Backtester
+from backtester.reporting.plotter import Plotter
+from backtester.core.results import BacktestResults
 
 # Clean console output — removes "INFO:module:" prefix globally
 logging.basicConfig(level=logging.INFO)

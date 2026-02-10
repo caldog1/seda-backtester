@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Optional
 
-from src.backtester.core.trade import TradeDirection, OrderType
+from backtester.core.trade import TradeDirection, OrderType
 
 
 @dataclass

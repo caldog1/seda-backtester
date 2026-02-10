@@ -23,8 +23,8 @@ import numpy as np
 import pandas as pd
 from matplotlib.gridspec import GridSpec
 
-from src.backtester.core.backtester import Backtester
-from src.backtester.core.results import BacktestResults
+from backtester.core.engine import Backtester
+from backtester.core.results import BacktestResults
 
 
 class Plotter:

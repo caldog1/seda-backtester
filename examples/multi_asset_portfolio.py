@@ -23,7 +23,7 @@ Run directly:
 
 from datetime import datetime
 
-from src.backtester.core.backtester import Backtester
+from src.backtester.core.engine import Backtester
 from src.backtester.strategies.sma_crossover import SMACrossoverStrategy
 from src.backtester.strategies.rsi_mean_reversion import RSIMeanReversionStrategy
 from src.backtester.sizers.sizers import FixedNotionalSizer, KellyRiskSizer

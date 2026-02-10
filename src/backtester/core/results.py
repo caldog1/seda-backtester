@@ -8,7 +8,7 @@ from dataclasses import dataclass, field
 from typing import List, Dict, Tuple, Optional
 import datetime as dt
 
-from src.backtester.core.trade import Trade
+from backtester.core.trade import Trade
 
 
 @dataclass

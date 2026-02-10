@@ -16,9 +16,9 @@ from optuna.pruners import MedianPruner
 from optuna.samplers import TPESampler
 from scipy.stats import linregress
 
-from src.backtester.core.backtester import Backtester
-from src.backtester.reporting.reporter import Reporter
-from src.backtester.core.results import BacktestResults
+from backtester.core.engine import Backtester
+from backtester.reporting.reporter import Reporter
+from backtester.core.results import BacktestResults
 
 
 class Optimizer:
