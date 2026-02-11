@@ -11,10 +11,10 @@ This script demonstrates the easiest way to get started:
 
 from datetime import datetime
 
-from src.backtester.core.engine import Backtester
-from src.backtester.reporting.reporter import Reporter
-from src.backtester.strategies.sma_crossover import SMACrossoverStrategy
-from src.backtester.sizers.sizers import FixedNotionalSizer
+from backtester.core.engine import Backtester
+from backtester.reporting.reporter import Reporter
+from backtester.strategies.sma_crossover import SMACrossoverStrategy
+from backtester.sizers.sizers import FixedNotionalSizer
 
 if __name__ == "__main__":
     # Simple SMA strategy
@@ -37,6 +37,17 @@ if __name__ == "__main__":
         end_date=datetime(2024, 7, 1),
         initial_capital=10_000,
         leverage=5.0,
+        # === DATA OPTIONS ===
+        # For development/testing (when running from cloned repo):
+        # custom_filepaths=None,  # uses default data_root = "../sample_data"
+        # data_root="../sample_data",  # explicit (optional)
+
+        # For production / pip-installed usage (recommended):
+        custom_filepaths={
+            "BTCUSDT_1h": "path/to/your/BTCUSDT_1h.csv",  # <-- replace with your real CSV path
+            # Alternative tuple format (also supported):
+            # ("BTCUSDT", "1h"): "path/to/your/BTCUSDT_1h.csv",
+        },
     )
 
     results = bt.run()

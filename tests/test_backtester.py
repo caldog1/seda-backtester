@@ -21,12 +21,12 @@ import pytest
 # Suppress expected slippage warnings for clean output (synthetic data has intentionally high notional relative to early bars)
 warnings.filterwarnings("ignore", message="High slippage risk")
 
-from src.backtester.core.engine import Backtester
-from src.backtester.core.trade import TradeDirection
-from src.backtester.data.base_provider import DataProvider
-from src.backtester.strategies.base import Strategy
-from src.backtester.sizers.sizers import FixedNotionalSizer
-from src.backtester.core.order import Order
+from backtester.core.engine import Backtester
+from backtester.core.trade import TradeDirection
+from backtester.data.base_provider import DataProvider
+from backtester.strategies.base import Strategy
+from backtester.sizers.sizers import FixedNotionalSizer
+from backtester.core.order import Order
 
 
 # =============================================================================

@@ -19,11 +19,11 @@ import os
 import warnings
 import numpy as np
 
-from src.backtester.core.engine import Backtester
-from src.backtester.strategies.sma_crossover import SMACrossoverStrategy
-from src.backtester.sizers.sizers import FixedNotionalSizer
-from src.backtester.optimization.optimizer import Optimizer
-from src.backtester.reporting.reporter import Reporter
+from backtester.core.engine import Backtester
+from backtester.strategies.sma_crossover import SMACrossoverStrategy
+from backtester.sizers.sizers import FixedNotionalSizer
+from backtester.optimization.optimizer import Optimizer
+from backtester.reporting.reporter import Reporter
 
 warnings.filterwarnings("ignore", category=RuntimeWarning, module="numpy")
 

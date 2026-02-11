@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 from hypothesis import given, strategies as st
 import pytest
 
-from src.backtester.core.trade import Trade, TradeDirection
+from backtester.core.trade import Trade, TradeDirection
 
 
 @given(

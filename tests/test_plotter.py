@@ -6,9 +6,9 @@ Uses matplotlib's Agg backend + image comparison via pytest-mpl if available.
 import matplotlib.pyplot as plt
 import pytest
 
-from src.backtester.core.engine import Backtester
-from src.backtester.core.results import BacktestResults
-from src.backtester.reporting.plotter import Plotter
+from backtester.core.engine import Backtester
+from backtester.core.results import BacktestResults
+from backtester.reporting.plotter import Plotter
 
 
 @pytest.fixture

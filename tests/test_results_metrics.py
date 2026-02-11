@@ -4,7 +4,7 @@ import datetime
 
 import pytest
 
-from src.backtester.core.simulation import _compute_trade_metrics
+from backtester.core.simulation import _compute_trade_metrics
 from tests.conftest import sample_trade
 
 

@@ -51,12 +51,8 @@ class Backtester:
         liq_mode: str = "force_close",
         liq_slippage_pct: float = 0.01,
         data_provider: Optional[DataProvider] = None,
-        data_root: Optional[
-            str
-        ] = "../sample_data",  # Quickstart auto-discovery directory
-        custom_filepaths: Optional[
-            Dict[Tuple[str, str], str]
-        ] = None,  # Explicit overrides
+        data_root: Optional[str] = "../sample_data",  # For quick dev/testing when running from repo
+        custom_filepaths: Optional[Dict[str | Tuple[str, str], str]] = None,  # Supports both formats
     ) -> None:
         self.timeframes = timeframes
         self.asset_list = asset_list
@@ -76,11 +72,32 @@ class Backtester:
 
         # Data provider setup
         if data_provider is None:
-            data_provider = CSVDataProvider()  # Single-file provider
+            data_provider = CSVDataProvider()
         self.data_provider = data_provider
 
         self.data_root = data_root if data_root is not None else None
-        self.custom_filepaths = custom_filepaths or {}
+
+        # Normalized custom_filepaths — always stored as Dict[Tuple[str, str], str]
+        self.custom_filepaths: Dict[Tuple[str, str], str] = {}
+        if custom_filepaths:
+            for key, path in custom_filepaths.items():
+                if isinstance(key, str):
+                    if "_" not in key:
+                        raise ValueError(
+                            f"Invalid string key in custom_filepaths: '{key}'. "
+                            "Expected format 'ASSET_TIMEFRAME' (e.g., 'BTCUSDT_1h') "
+                            "or a tuple (e.g., ('BTCUSDT', '1h'))."
+                        )
+                    asset, timeframe = key.split("_", 1)  # Split on first underscore only
+                    normalized_key = (asset, timeframe)
+                elif isinstance(key, tuple) and len(key) == 2 and all(isinstance(x, str) for x in key):
+                    normalized_key = key
+                else:
+                    raise ValueError(
+                        f"Invalid key in custom_filepaths: {key}. "
+                        "Expected str ('ASSET_TIMEFRAME') or tuple[str, str]."
+                    )
+                self.custom_filepaths[normalized_key] = path
 
         self.fee_model = DefaultFeeModel()
         self.slippage_model = HybridSlippageModel(
@@ -149,7 +166,13 @@ class Backtester:
         logger.info(f"Loaded {loaded}/{requested} series")
         if loaded == 0:
             raise RuntimeError(
-                "No data loaded — check filepaths, sample_data/, or custom_filepaths"
+                "No data loaded for any asset/timeframe.\n\n"
+                "SEDA requires OHLCV CSV files (columns: timestamp, open, high, low, close, volume).\n"
+                "Options:\n"
+                "1. Place files in a 'sample_data/' folder next to your script (naming: {asset}_{timeframe}.csv)\n"
+                "2. Use the 'custom_filepaths' dict in Backtester (recommended for production)\n"
+                "3. Clone the repo for included samples: git clone https://github.com/caldog1/seda-backtester.git\n"
+                "   Samples: https://github.com/caldog1/seda-backtester/tree/main/sample_data"
             )
 
     def execute_order(

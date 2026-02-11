@@ -12,7 +12,7 @@ Covers:
 
 import pytest
 
-from src.backtester.core.execution import HybridSlippageModel, OrderType
+from backtester.core.execution import HybridSlippageModel, OrderType
 
 
 class TestHybridSlippageModel:

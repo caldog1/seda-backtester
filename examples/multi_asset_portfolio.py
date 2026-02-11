@@ -23,11 +23,11 @@ Run directly:
 
 from datetime import datetime
 
-from src.backtester.core.engine import Backtester
-from src.backtester.strategies.sma_crossover import SMACrossoverStrategy
-from src.backtester.strategies.rsi_mean_reversion import RSIMeanReversionStrategy
-from src.backtester.sizers.sizers import FixedNotionalSizer, KellyRiskSizer
-from src.backtester.reporting.reporter import Reporter
+from backtester.core.engine import Backtester
+from backtester.strategies.sma_crossover import SMACrossoverStrategy
+from backtester.strategies.rsi_mean_reversion import RSIMeanReversionStrategy
+from backtester.sizers.sizers import FixedNotionalSizer, KellyRiskSizer
+from backtester.reporting.reporter import Reporter
 
 if __name__ == "__main__":
     # Strategy 1: Classic SMA crossover (reversal system)
@@ -62,6 +62,17 @@ if __name__ == "__main__":
         leverage=5.0,                               # Realistic 5x cap
         mmr_rate=0.005,                             # 0.5% maintenance margin
         liq_mode="log_only",
+        # === DATA OPTIONS ===
+        # For development/testing (when running from cloned repo):
+        # custom_filepaths=None,  # uses default data_root = "../sample_data"
+        # data_root="../sample_data",  # explicit (optional)
+
+        # For production / pip-installed usage (recommended):
+        custom_filepaths={
+            "BTCUSDT_1h": "path/to/your/BTCUSDT_1h.csv",  # <-- replace with your real CSV path
+            # Alternative tuple format (also supported):
+            # ("BTCUSDT", "1h"): "path/to/your/BTCUSDT_1h.csv",
+        },
     )
 
     print("\nRunning multi-asset / multi-timeframe / multi-strategy portfolio backtest...")

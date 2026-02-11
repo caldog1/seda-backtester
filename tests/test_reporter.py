@@ -19,10 +19,10 @@ from datetime import datetime, timedelta
 import numpy as np
 import pytest
 
-from src.backtester.core.engine import Backtester
-from src.backtester.core.results import BacktestResults
-from src.backtester.core.trade import Trade, TradeDirection
-from src.backtester.reporting.reporter import Reporter
+from backtester.core.engine import Backtester
+from backtester.core.results import BacktestResults
+from backtester.core.trade import Trade, TradeDirection
+from backtester.reporting.reporter import Reporter
 
 
 @pytest.fixture(autouse=True)

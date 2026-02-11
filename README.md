@@ -101,10 +101,10 @@ Create a minimal script (e.g., simple_sma_backtest.py):
 ```Python
 from datetime import datetime
 
-from src.backtester.core.engine import Backtester
-from src.backtester.strategies.sma_crossover import SMACrossoverStrategy
-from src.backtester.sizers.sizers import FixedNotionalSizer
-from src.backtester.reporting.reporter import Reporter
+from backtester.core.engine import Backtester
+from backtester.strategies.sma_crossover import SMACrossoverStrategy
+from backtester.sizers.sizers import FixedNotionalSizer
+from backtester.reporting.reporter import Reporter
 
 if __name__ == "__main__":
   strategy = SMACrossoverStrategy(
@@ -122,6 +122,11 @@ if __name__ == "__main__":
     end_date=datetime(2024, 12, 1),
     initial_capital=100_000,
     leverage=5.0,
+    custom_filepaths={
+        "BTCUSDT_1h": "path/to/your/BTCUSDT_1h.csv",  # <-- replace with your real CSV path
+        # Alternative tuple format (also supported):
+        # ("BTCUSDT", "1h"): "path/to/your/BTCUSDT_1h.csv",
+    },
   )
 
   results = bt.run()
@@ -200,9 +205,9 @@ The engine follows a strict separation of concerns for maintainability and exten
 Extend the abstract `Strategy` class from `src.backtester.strategies.base`. The base class handles trade tracking, position sizing, pyramiding control, and automatic SL/TP enforcement.
 
 ```python
-from src.backtester.strategies.base import Strategy
-from src.backtester.core.order import Order
-from src.backtester.core.trade import TradeDirection
+from backtester.strategies.base import Strategy
+from backtester.core.order import Order
+from backtester.core.trade import TradeDirection
 
 class MyStrategy(Strategy):
     def handle_entries(
@@ -235,6 +240,33 @@ class MyStrategy(Strategy):
 ```
 See `rsi_mean_reversion.py` and `bollinger_breakout.py` for complete, heavily-commented templates.
 Strategies become instantly optimizable by defining a Params dataclass with a nested Meta class specifying search ranges for Optuna.
+## Data Requirements
+
+SEDA uses standard OHLCV CSV files:
+- Columns: `timestamp` (index), `open`, `high`, `low`, `close`, `volume`
+- File naming: `{asset}_{timeframe}.csv` (e.g., `BTCUSDT_1h.csv`)
+
+The package does **not** include sample data (keeps install lightweight).
+
+### Options for Data
+
+1. **Use your own CSVs** (recommended for real strategies):
+   Pass paths explicitly:
+   ```python
+    bt = Backtester(
+        ...,
+        # === DATA OPTIONS ===
+        # For development/testing (when running from cloned repo):
+        # custom_filepaths=None,  # uses default data_root = "../sample_data"
+        # data_root="../sample_data",  # explicit (optional)
+      
+        # For production / pip-installed usage (recommended):
+        custom_filepaths={
+            "BTCUSDT_1h": "path/to/your/BTCUSDT_1h.csv",  # <-- replace with your real CSV path
+            # Alternative tuple format (also supported):
+            # ("BTCUSDT", "1h"): "path/to/your/BTCUSDT_1h.csv",
+        },
+    )
 ## Data Providers
 The included CSV provider features automatic column detection and supports arbitrary file naming via the custom_filepaths argument.
 Live data sources (Binance API, CCXT, etc.) can be added by implementing the lightweight DataProvider abstract interface — no changes to the core engine required.

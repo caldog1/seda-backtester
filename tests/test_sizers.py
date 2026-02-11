@@ -15,7 +15,7 @@ import pytest
 import numpy as np
 from typing import Dict
 
-from src.backtester.sizers.sizers import (
+from backtester.sizers.sizers import (
     PositionSizer,
     FixedNotionalSizer,
     FixedFractionalSizer,

@@ -15,7 +15,7 @@ import datetime as dt
 
 import pytest
 
-from src.backtester.core.trade import Trade, TradeDirection, OrderType, TradeStatus
+from backtester.core.trade import Trade, TradeDirection, OrderType, TradeStatus
 
 
 @pytest.fixture

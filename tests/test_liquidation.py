@@ -16,8 +16,8 @@ from typing import Dict, List
 
 import pytest
 
-from src.backtester.core.liquidation_tracker import LiquidationTracker
-from src.backtester.core.trade import Trade, TradeDirection
+from backtester.core.liquidation_tracker import LiquidationTracker
+from backtester.core.trade import Trade, TradeDirection
 
 
 @pytest.fixture

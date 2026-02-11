@@ -4,8 +4,8 @@ import os
 import optuna
 import pytest
 
-from src.backtester.optimization.optimizer import Optimizer
-from src.backtester.strategies.sma_crossover import SMACrossoverStrategy
+from backtester.optimization.optimizer import Optimizer
+from backtester.strategies.sma_crossover import SMACrossoverStrategy
 
 
 @pytest.fixture
