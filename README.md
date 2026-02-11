@@ -1,6 +1,7 @@
 <!-- At the very top of README.md -->
 <div align="center">
   <h1>SEDA — Synchronous Event-Driven Backtester</h1>
+  
   <p>
     <strong>Institutional-grade backtesting for perpetual futures</strong><br>
     Multi-asset • Multi-timeframe • Realistic execution • Leverage & liquidation
@@ -10,12 +11,23 @@
     <a href="https://github.com/caldog1/seda-backtester/stargazers">
       <img src="https://img.shields.io/github/stars/caldog1/seda-backtester?style=social" alt="GitHub stars">
     </a>
-    <a href="https://github.com/caldog1/seda-backtester/blob/main/LICENSE">
-      <img src="https://img.shields.io/github/license/caldog1/seda-backtester" alt="License">
-    </a>
     <a href="https://github.com/caldog1/seda-backtester">
       <img src="https://img.shields.io/github/forks/caldog1/seda-backtester?style=social" alt="GitHub forks">
     </a>
+    <a href="https://github.com/caldog1/seda-backtester/blob/main/LICENSE">
+      <img src="https://img.shields.io/github/license/caldog1/seda-backtester" alt="GitHub license">
+    </a>
+    <a href="https://pypi.org/project/seda-backtester/">
+      <img src="https://img.shields.io/pypi/v/seda-backtester?color=%2334D058&label=PyPI" alt="PyPI version">
+    </a>
+    <a href="https://pypi.org/project/seda-backtester/">
+      <img src="https://img.shields.io/pypi/pyversions/seda-backtester.svg?color=%2334D058" alt="Supported Python versions">
+    </a>
+  </p>
+
+  <p>
+    <img src="https://img.shields.io/badge/Python-3.9%2B-blue.svg" alt="Python 3.9+">
+    <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black">
   </p>
 </div>
 
@@ -26,6 +38,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![PyPI version](https://badge.fury.io/py/seda-backtester.svg)](https://pypi.org/project/seda-backtester/)
 
 **Institutional-grade backtesting engine for perpetual futures trading strategies.**
 
