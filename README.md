@@ -1,6 +1,6 @@
 <!-- At the very top of README.md -->
 <div align="center">
-  <h1>SEDA — Synchronous Event-Driven Backtester</h1>
+  <h1>SEDA — Synchronous Event-Driven Analyzer</h1>
   
   <p>
     <strong>Institutional-grade backtesting for perpetual futures</strong><br>
@@ -33,7 +33,7 @@
 
 <br>
 
-# SEDA — Synchronous Event-Driven Backtester
+# SEDA — Synchronous Event-Driven Analyser
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
