@@ -8,7 +8,7 @@ Automatically runs and reports the best parameters.
 from __future__ import annotations
 
 import datetime as dt
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Tuple
 
 import numpy as np
 import optuna
@@ -29,7 +29,8 @@ class Optimizer:
         config: Dict[str, Any],
         strategy_class: type,
         timeout: Optional[int] = None,
-        report_path: str = None
+        report_path: str = None,
+        custom_filepaths: Optional[Dict[str | Tuple[str, str], str]] = None,
     ) -> None:
         self.config = config
         self.strategy_class = strategy_class
@@ -39,6 +40,9 @@ class Optimizer:
         # Data pre-loading for speed
         self.pre_load = config.get("pre_load_data", True)
         self.pre_arrays: Dict[tuple[str, str], dict] = {}
+
+        self.report_path = report_path
+        self.custom_filepaths = custom_filepaths
 
         if self.pre_load:
             # Dummy strategy to trigger data loading (no leverage during preload)
@@ -53,10 +57,10 @@ class Optimizer:
                 end_date=config["end_date"],
                 initial_capital=config.get("initial_capital", 150_000.0),
                 leverage=None,  # No liquidation during preload
+                custom_filepaths=self.custom_filepaths,
             )
             dummy_bt.load_data()  # Replace with real provider later
             self.pre_arrays = dummy_bt.arrays
-            self.report_path = report_path
 
     def objective(self, trial: optuna.Trial) -> float:
         """Optuna objective function — suggest params and evaluate backtest."""
@@ -90,6 +94,7 @@ class Optimizer:
             end_date=self.config["end_date"],
             initial_capital=self.config.get("initial_capital", 150_000.0),
             leverage=self.config.get("leverage_cap"),
+            custom_filepaths=self.custom_filepaths,
         )
 
         if self.pre_load:
@@ -171,6 +176,7 @@ class Optimizer:
             end_date=self.config["end_date"],
             initial_capital=self.config.get("initial_capital", 150_000.0),
             leverage=self.config.get("leverage_cap"),
+            custom_filepaths=self.custom_filepaths,
         )
 
         if self.pre_load:

@@ -43,6 +43,9 @@ config = {
     "objective_metric": "calmar_only",  # Options: calmar_sharpe, sqn, calmar_only, pnl_dd_r2
     "min_trades_for_optimization": 10,  # Penalise overly sparse strategies
     "study_name": "SMA_Crossover_Opt_2025",
+    "custom_filepaths": {
+        "BTCUSDT_1h": "path/to/your/BTCUSDT_1h.csv",  # replace with real path
+    },
 }
 
 # ------------------------------------------------------------------
@@ -54,7 +57,8 @@ if __name__ == "__main__":
         config=config,
         strategy_class=SMACrossoverStrategy,
         timeout=config["timeout"],
-        report_path=f"../reports/opt_best_{config['study_name']}.html"
+        report_path=f"../reports/opt_best_{config['study_name']}.html",
+        custom_filepaths=config.get("custom_filepaths"),
     )
 
     # Execute study — prints progress and saves to in-memory storage
